@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jest-stare!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/diff2html.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jest-stare.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/diff2html.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/view.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" id="navbar-title" href="#">jest-stare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="coverage-link" class="nav-link disabled" href="#">Coverage</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-passoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-passoff-switch">
+                                <span class="pass off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-failoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-failoff-switch">
+                                <span class="fail off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-pendingoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-pendingoff-switch">
+                                <span class="pending off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-todooff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-todooff-switch">
+                                <span class="todo off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Search</button>
+                </form> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+        <h1 class="mt-5"></h1>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <canvas id="test-suites-canvas" width="100" height="100"></canvas>
+                <h2>Test Suites</h2>
+                <div class="list-group">
+                    <p id="test-suites-results" class="list-group-item list-group-item-action">0 passed, 1 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <canvas id="tests-canvas" width="100" height="100"></canvas>
+                <h2>Tests</h2>
+                <div class="list-group">
+                    <p id="tests-results" class="list-group-item list-group-item-action">4 passed, 6 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="snapshots-group">
+                <canvas id="snapshots-canvas" width="100" height="100"></canvas>
+                <h2>Snapshots</h2>
+                <div class="list-group">
+                    <p id="snapshots-results" class="list-group-item list-group-item-action">0 passed, 0 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+
+        <div id="loading-info" class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100" style="width: 100%"></div>
+        </div>
+
+        <div class="d-none" id="test-summary"></div>
+        <div class="d-none" id="test-config">{
+  &quot;resultDir&quot;: &quot;jest-stare&#x2F;&quot;,
+  &quot;reportTitle&quot;: &quot;jest-stare-report&quot;,
+  &quot;additionalResultsProcessors&quot;: [],
+  &quot;resultHtml&quot;: &quot;index.html&quot;,
+  &quot;resultJson&quot;: &quot;jest-results.json&quot;
+}</div>
+        <div id="accordion">
+            <div class="d-none" id="test-results">{
+  &quot;numFailedTestSuites&quot;: 1,
+  &quot;numFailedTests&quot;: 2,
+  &quot;numPassedTestSuites&quot;: 0,
+  &quot;numPassedTests&quot;: 4,
+  &quot;numPendingTestSuites&quot;: 0,
+  &quot;numPendingTests&quot;: 0,
+  &quot;numRuntimeErrorTestSuites&quot;: 0,
+  &quot;numTodoTests&quot;: 0,
+  &quot;numTotalTestSuites&quot;: 1,
+  &quot;numTotalTests&quot;: 6,
+  &quot;openHandles&quot;: [],
+  &quot;snapshot&quot;: {
+    &quot;added&quot;: 0,
+    &quot;didUpdate&quot;: false,
+    &quot;failure&quot;: false,
+    &quot;filesAdded&quot;: 0,
+    &quot;filesRemoved&quot;: 0,
+    &quot;filesRemovedList&quot;: [],
+    &quot;filesUnmatched&quot;: 0,
+    &quot;filesUpdated&quot;: 0,
+    &quot;matched&quot;: 0,
+    &quot;total&quot;: 0,
+    &quot;unchecked&quot;: 0,
+    &quot;uncheckedKeysByFile&quot;: [],
+    &quot;unmatched&quot;: 0,
+    &quot;updated&quot;: 0
+  },
+  &quot;startTime&quot;: 1714526523074,
+  &quot;success&quot;: false,
+  &quot;testResults&quot;: [
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 2,
+      &quot;numPassingTests&quot;: 4,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1714526529532,
+        &quot;runtime&quot;: 6324,
+        &quot;slow&quot;: true,
+        &quot;start&quot;: 1714526523208
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;uncheckedKeys&quot;: [],
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0
+      },
+      &quot;testFilePath&quot;: &quot;D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\app\\googlePage.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 1536,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;The Google home page is loading&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 1,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;The Google home page is loading&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 529,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;The search field is available&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 1,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;The search field is available&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 407,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;The \&quot;Search\&quot; button is present&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 1,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;The \&quot;Search\&quot; button is present&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 336,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;The Google logo is displayed&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 1,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;The Google logo is displayed&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 358,
+          &quot;failureDetails&quot;: [
+            {
+              &quot;matcherResult&quot;: {
+                &quot;actual&quot;: &quot;Google&quot;,
+                &quot;expected&quot;: &quot;DuckDuckGo&quot;,
+                &quot;message&quot;: &quot;\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) &#x2F;&#x2F; Object.is equality\u001b[22m\n\nExpected: \u001b[32m\&quot;DuckDuckGo\&quot;\u001b[39m\nReceived: \u001b[31m\&quot;Google\&quot;\u001b[39m&quot;,
+                &quot;name&quot;: &quot;toBe&quot;,
+                &quot;pass&quot;: false
+              }
+            }
+          ],
+          &quot;failureMessages&quot;: [
+            &quot;Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) &#x2F;&#x2F; Object.is equality\u001b[22m\n\nExpected: \u001b[32m\&quot;DuckDuckGo\&quot;\u001b[39m\nReceived: \u001b[31m\&quot;Google\&quot;\u001b[39m\n    at Object.toBe (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\app\\googlePage.test.js:47:17)\n    at processTicksAndRejections (node:internal&#x2F;process&#x2F;task_queues:95:5)&quot;
+          ],
+          &quot;fullName&quot;: &quot;Incorrect page title&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;failed&quot;,
+          &quot;title&quot;: &quot;Incorrect page title&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [],
+          &quot;duration&quot;: 299,
+          &quot;failureDetails&quot;: [
+            {
+              &quot;name&quot;: &quot;NoSuchElementError&quot;,
+              &quot;remoteStacktrace&quot;: &quot;\tGetHandleVerifier [0x00007FF6CFCA1502+60802]\n\t(No symbol) [0x00007FF6CFC1AC02]\n\t(No symbol) [0x00007FF6CFAD7CE4]\n\t(No symbol) [0x00007FF6CFB26D4D]\n\t(No symbol) [0x00007FF6CFB26E1C]\n\t(No symbol) [0x00007FF6CFB6CE37]\n\t(No symbol) [0x00007FF6CFB4ABBF]\n\t(No symbol) [0x00007FF6CFB6A224]\n\t(No symbol) [0x00007FF6CFB4A923]\n\t(No symbol) [0x00007FF6CFB18FEC]\n\t(No symbol) [0x00007FF6CFB19C21]\n\tGetHandleVerifier [0x00007FF6CFFA411D+3217821]\n\tGetHandleVerifier [0x00007FF6CFFE60B7+3488055]\n\tGetHandleVerifier [0x00007FF6CFFDF03F+3459263]\n\tGetHandleVerifier [0x00007FF6CFD5B846+823494]\n\t(No symbol) [0x00007FF6CFC25F9F]\n\t(No symbol) [0x00007FF6CFC20EC4]\n\t(No symbol) [0x00007FF6CFC21052]\n\t(No symbol) [0x00007FF6CFC118A4]\n\tBaseThreadInitThunk [0x00007FFBEA99257D+29]\n\tRtlUserThreadStart [0x00007FFBEC00AA48+40]\n&quot;
+            }
+          ],
+          &quot;failureMessages&quot;: [
+            &quot;NoSuchElementError: no such element: Unable to locate element: {\&quot;method\&quot;:\&quot;css selector\&quot;,\&quot;selector\&quot;:\&quot;*[id&#x3D;\&quot;missingElement\&quot;]\&quot;}\n  (Session info: chrome&#x3D;124.0.6367.91)\n    at Object.throwDecodedError (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\error.js:521:15)\n    at parseHttpResponse (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\http.js:514:13)\n    at Executor.execute (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\http.js:446:28)\n    at processTicksAndRejections (node:internal&#x2F;process&#x2F;task_queues:95:5)\n    at Driver.execute (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\webdriver.js:740:17)\n    at Object.&lt;anonymous&gt; (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\app\\googlePage.test.js:53:26)&quot;
+          ],
+          &quot;fullName&quot;: &quot;Missing element on page&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;failed&quot;,
+          &quot;title&quot;: &quot;Missing element on page&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: &quot;\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mIncorrect page title\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) &#x2F;&#x2F; Object.is equality\u001b[22m\n\n    Expected: \u001b[32m\&quot;DuckDuckGo\&quot;\u001b[39m\n    Received: \u001b[31m\&quot;Google\&quot;\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m title \u001b[33m&#x3D;\u001b[39m \u001b[36mawait\u001b[39m driver\u001b[33m.\u001b[39mgetTitle()\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 46 |\u001b[39m   console\u001b[33m.\u001b[39mlog(title)\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m&gt;\u001b[22m\u001b[2m\u001b[39m\u001b[90m 47 |\u001b[39m   expect(title)\u001b[33m.\u001b[39mtoBe(\u001b[32m&#39;DuckDuckGo&#39;\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 48 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 49 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 50 |\u001b[39m \u001b[90m&#x2F;&#x2F; Expected negative result\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.toBe (\u001b[22m\u001b[2m\u001b[0m\u001b[36mapp&#x2F;googlePage.test.js\u001b[39m\u001b[0m\u001b[2m:47:17)\u001b[22m\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mMissing element on page\u001b[39m\u001b[22m\n\n    NoSuchElementError: no such element: Unable to locate element: {\&quot;method\&quot;:\&quot;css selector\&quot;,\&quot;selector\&quot;:\&quot;*[id&#x3D;\&quot;missingElement\&quot;]\&quot;}\n      (Session info: chrome&#x3D;124.0.6367.91)\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 51 |\u001b[39m test(\u001b[32m&#39;Missing element on page&#39;\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m&#x3D;&gt;\u001b[39m {\u001b[22m\n\u001b[2m     \u001b[90m 52 |\u001b[39m   \u001b[36mawait\u001b[39m driver\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m&#39;https:&#x2F;&#x2F;www.google.com&#39;\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m&gt;\u001b[22m\u001b[2m\u001b[39m\u001b[90m 53 |\u001b[39m   \u001b[36mconst\u001b[39m missingElement \u001b[33m&#x3D;\u001b[39m \u001b[36mawait\u001b[39m driver\u001b[33m.\u001b[39mfindElement(\u001b[33mBy\u001b[39m\u001b[33m.\u001b[39mid(\u001b[32m&#39;missingElement&#39;\u001b[39m))\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 54 |\u001b[39m   console\u001b[33m.\u001b[39mlog(missingElement)\u001b[22m\n\u001b[2m     \u001b[90m 55 |\u001b[39m   expect(missingElement)\u001b[33m.\u001b[39mtoBeFalsy()\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 56 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.throwDecodedError (\u001b[22m\u001b[2mnode_modules&#x2F;selenium-webdriver&#x2F;lib&#x2F;error.js\u001b[2m:521:15)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat parseHttpResponse (\u001b[22m\u001b[2mnode_modules&#x2F;selenium-webdriver&#x2F;lib&#x2F;http.js\u001b[2m:514:13)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Executor.execute (\u001b[22m\u001b[2mnode_modules&#x2F;selenium-webdriver&#x2F;lib&#x2F;http.js\u001b[2m:446:28)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Driver.execute (\u001b[22m\u001b[2mnode_modules&#x2F;selenium-webdriver&#x2F;lib&#x2F;webdriver.js\u001b[2m:740:17)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.&lt;anonymous&gt; (\u001b[22m\u001b[2m\u001b[0m\u001b[36mapp&#x2F;googlePage.test.js\u001b[39m\u001b[0m\u001b[2m:53:26)\u001b[22m\u001b[2m\u001b[22m\n&quot;
+    }
+  ],
+  &quot;wasInterrupted&quot;: false
+}</div>
+        </div>
+        <div class="d-none" id="test-global-config">{
+  &quot;bail&quot;: 0,
+  &quot;changedFilesWithAncestor&quot;: false,
+  &quot;ci&quot;: false,
+  &quot;collectCoverage&quot;: false,
+  &quot;collectCoverageFrom&quot;: [],
+  &quot;coverageDirectory&quot;: &quot;D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\coverage&quot;,
+  &quot;coverageProvider&quot;: &quot;babel&quot;,
+  &quot;coverageReporters&quot;: [
+    &quot;json&quot;,
+    &quot;text&quot;,
+    &quot;lcov&quot;,
+    &quot;clover&quot;
+  ],
+  &quot;detectLeaks&quot;: false,
+  &quot;detectOpenHandles&quot;: false,
+  &quot;errorOnDeprecated&quot;: false,
+  &quot;expand&quot;: false,
+  &quot;findRelatedTests&quot;: false,
+  &quot;forceExit&quot;: false,
+  &quot;json&quot;: false,
+  &quot;lastCommit&quot;: false,
+  &quot;listTests&quot;: false,
+  &quot;logHeapUsage&quot;: false,
+  &quot;maxConcurrency&quot;: 5,
+  &quot;maxWorkers&quot;: 11,
+  &quot;noStackTrace&quot;: false,
+  &quot;nonFlagArgs&quot;: [
+    &quot;googlePage.test.js&quot;
+  ],
+  &quot;notify&quot;: false,
+  &quot;notifyMode&quot;: &quot;failure-change&quot;,
+  &quot;onlyChanged&quot;: false,
+  &quot;onlyFailures&quot;: false,
+  &quot;openHandlesTimeout&quot;: 1000,
+  &quot;passWithNoTests&quot;: false,
+  &quot;projects&quot;: [],
+  &quot;reporters&quot;: [
+    [
+      &quot;default&quot;,
+      {}
+    ],
+    [
+      &quot;D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\jest-stare\\lib\\index.js&quot;,
+      {
+        &quot;resultDir&quot;: &quot;jest-stare&#x2F;&quot;,
+        &quot;reportTitle&quot;: &quot;jest-stare-report&quot;,
+        &quot;additionalResultsProcessors&quot;: [],
+        &quot;resultHtml&quot;: &quot;index.html&quot;,
+        &quot;resultJson&quot;: &quot;jest-results.json&quot;
+      }
+    ]
+  ],
+  &quot;rootDir&quot;: &quot;D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6&quot;,
+  &quot;runTestsByPath&quot;: false,
+  &quot;seed&quot;: 979463390,
+  &quot;skipFilter&quot;: false,
+  &quot;snapshotFormat&quot;: {
+    &quot;escapeString&quot;: false,
+    &quot;printBasicPrototype&quot;: false
+  },
+  &quot;testFailureExitCode&quot;: 1,
+  &quot;testPathPattern&quot;: &quot;googlePage.test.js&quot;,
+  &quot;testSequencer&quot;: &quot;D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\@jest\\test-sequencer\\build\\index.js&quot;,
+  &quot;updateSnapshot&quot;: &quot;new&quot;,
+  &quot;useStderr&quot;: false,
+  &quot;verbose&quot;: false,
+  &quot;watch&quot;: false,
+  &quot;watchAll&quot;: false,
+  &quot;watchman&quot;: true,
+  &quot;workerThreads&quot;: false
+}</div>
+
+    </main>
+    <hr>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">jest-stare 2022</span>
+        </div>
+    </footer>
+</body>
+
+</html>
+

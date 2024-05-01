@@ -1,0 +1,12 @@
+{
+  "reporters": [
+    "default",
+    [
+      "./node_modules/jest-stare",
+      {
+        "resultDir": "jest-stare",
+        "reportTitle": "jest-stare-report"
+      }
+    ]
+  ]
+}

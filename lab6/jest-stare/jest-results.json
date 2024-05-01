@@ -1,0 +1,159 @@
+{
+  "numFailedTestSuites": 1,
+  "numFailedTests": 2,
+  "numPassedTestSuites": 0,
+  "numPassedTests": 4,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 1,
+  "numTotalTests": 6,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1714526523074,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 2,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714526529532,
+        "runtime": 6324,
+        "slow": true,
+        "start": 1714526523208
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\app\\googlePage.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [],
+          "duration": 1536,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "The Google home page is loading",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "The Google home page is loading"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 529,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "The search field is available",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "The search field is available"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 407,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "The \"Search\" button is present",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "The \"Search\" button is present"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 336,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "The Google logo is displayed",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "The Google logo is displayed"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 358,
+          "failureDetails": [
+            {
+              "matcherResult": {
+                "actual": "Google",
+                "expected": "DuckDuckGo",
+                "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"DuckDuckGo\"\u001b[39m\nReceived: \u001b[31m\"Google\"\u001b[39m",
+                "name": "toBe",
+                "pass": false
+              }
+            }
+          ],
+          "failureMessages": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"DuckDuckGo\"\u001b[39m\nReceived: \u001b[31m\"Google\"\u001b[39m\n    at Object.toBe (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\app\\googlePage.test.js:47:17)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
+          ],
+          "fullName": "Incorrect page title",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "failed",
+          "title": "Incorrect page title"
+        },
+        {
+          "ancestorTitles": [],
+          "duration": 299,
+          "failureDetails": [
+            {
+              "name": "NoSuchElementError",
+              "remoteStacktrace": "\tGetHandleVerifier [0x00007FF6CFCA1502+60802]\n\t(No symbol) [0x00007FF6CFC1AC02]\n\t(No symbol) [0x00007FF6CFAD7CE4]\n\t(No symbol) [0x00007FF6CFB26D4D]\n\t(No symbol) [0x00007FF6CFB26E1C]\n\t(No symbol) [0x00007FF6CFB6CE37]\n\t(No symbol) [0x00007FF6CFB4ABBF]\n\t(No symbol) [0x00007FF6CFB6A224]\n\t(No symbol) [0x00007FF6CFB4A923]\n\t(No symbol) [0x00007FF6CFB18FEC]\n\t(No symbol) [0x00007FF6CFB19C21]\n\tGetHandleVerifier [0x00007FF6CFFA411D+3217821]\n\tGetHandleVerifier [0x00007FF6CFFE60B7+3488055]\n\tGetHandleVerifier [0x00007FF6CFFDF03F+3459263]\n\tGetHandleVerifier [0x00007FF6CFD5B846+823494]\n\t(No symbol) [0x00007FF6CFC25F9F]\n\t(No symbol) [0x00007FF6CFC20EC4]\n\t(No symbol) [0x00007FF6CFC21052]\n\t(No symbol) [0x00007FF6CFC118A4]\n\tBaseThreadInitThunk [0x00007FFBEA99257D+29]\n\tRtlUserThreadStart [0x00007FFBEC00AA48+40]\n"
+            }
+          ],
+          "failureMessages": [
+            "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"missingElement\"]\"}\n  (Session info: chrome=124.0.6367.91)\n    at Object.throwDecodedError (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\error.js:521:15)\n    at parseHttpResponse (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\http.js:514:13)\n    at Executor.execute (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\http.js:446:28)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at Driver.execute (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\node_modules\\selenium-webdriver\\lib\\webdriver.js:740:17)\n    at Object.<anonymous> (D:\\Univer\\4 kurs\\Автоматизація тестування\\lab6\\app\\googlePage.test.js:53:26)"
+          ],
+          "fullName": "Missing element on page",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "failed",
+          "title": "Missing element on page"
+        }
+      ],
+      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mIncorrect page title\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\n    Expected: \u001b[32m\"DuckDuckGo\"\u001b[39m\n    Received: \u001b[31m\"Google\"\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m title \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m driver\u001b[33m.\u001b[39mgetTitle()\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 46 |\u001b[39m   console\u001b[33m.\u001b[39mlog(title)\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 47 |\u001b[39m   expect(title)\u001b[33m.\u001b[39mtoBe(\u001b[32m'DuckDuckGo'\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 48 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 49 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 50 |\u001b[39m \u001b[90m// Expected negative result\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.toBe (\u001b[22m\u001b[2m\u001b[0m\u001b[36mapp/googlePage.test.js\u001b[39m\u001b[0m\u001b[2m:47:17)\u001b[22m\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mMissing element on page\u001b[39m\u001b[22m\n\n    NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"missingElement\"]\"}\n      (Session info: chrome=124.0.6367.91)\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 51 |\u001b[39m test(\u001b[32m'Missing element on page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[22m\n\u001b[2m     \u001b[90m 52 |\u001b[39m   \u001b[36mawait\u001b[39m driver\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'https://www.google.com'\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 53 |\u001b[39m   \u001b[36mconst\u001b[39m missingElement \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m driver\u001b[33m.\u001b[39mfindElement(\u001b[33mBy\u001b[39m\u001b[33m.\u001b[39mid(\u001b[32m'missingElement'\u001b[39m))\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 54 |\u001b[39m   console\u001b[33m.\u001b[39mlog(missingElement)\u001b[22m\n\u001b[2m     \u001b[90m 55 |\u001b[39m   expect(missingElement)\u001b[33m.\u001b[39mtoBeFalsy()\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 56 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.throwDecodedError (\u001b[22m\u001b[2mnode_modules/selenium-webdriver/lib/error.js\u001b[2m:521:15)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat parseHttpResponse (\u001b[22m\u001b[2mnode_modules/selenium-webdriver/lib/http.js\u001b[2m:514:13)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Executor.execute (\u001b[22m\u001b[2mnode_modules/selenium-webdriver/lib/http.js\u001b[2m:446:28)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Driver.execute (\u001b[22m\u001b[2mnode_modules/selenium-webdriver/lib/webdriver.js\u001b[2m:740:17)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36mapp/googlePage.test.js\u001b[39m\u001b[0m\u001b[2m:53:26)\u001b[22m\u001b[2m\u001b[22m\n"
+    }
+  ],
+  "wasInterrupted": false
+}
