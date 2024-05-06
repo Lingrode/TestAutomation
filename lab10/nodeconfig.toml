@@ -1,0 +1,3 @@
+[node]
+drivers = ["chrome", "firefox"]
+max-sessions = 3
