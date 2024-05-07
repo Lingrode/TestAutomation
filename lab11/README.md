@@ -5,7 +5,7 @@
   <figcaption><em>Docker Desktop</em></figcaption>
 </figure>
 
-## 2. Create a simple Express project
+## 2. Create an Express project
 
 <figure>
   <img src="./src/static/screenshots/express-project.png">
